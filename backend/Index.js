@@ -20,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
 
-// Connect MongoDB
+
 connectDB();
 
 // API Routes
