@@ -1,0 +1,176 @@
+.View-product-page {
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px 100px;
+  background: #f8f9fa;
+}
+
+.View-back-link{
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 22px;
+}
+
+.View-product-container {
+  display: flex;
+  gap: 30px;
+}
+
+.View-product-image {
+  min-width: 50%;
+}
+
+.View-image-placeholder {
+  background: #cbd5e1;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f3640;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.View-image-tabs {
+  margin-top: 10px;
+}
+
+.View-tab {
+  background: #e2e8f0;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.View-tab.active {
+  background-color: #facc15;
+  color: #000;
+}
+
+.View-product-info {
+  padding: 15px;
+  background-color: #ffffff;
+  flex: 1;
+  height: 90%;
+  min-width: 350px;
+}
+
+.View-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.View-summary,
+.View-location,
+.View-posted {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #475569;
+}
+
+.View-seller-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.View-seller-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.View-seller-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.View-avatar {
+  background-color: #0f172a;
+  color: white;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.View-name {
+  font-weight: 600;
+}
+
+.View-since {
+  font-size: 0.9em;
+  color: #6b7280;
+}
+
+.View-chat-btn,
+.View-fav-btn {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.View-chat-btn {
+  background-color: #0f172a;
+  color: white;
+}
+
+.View-fav-btn {
+  background-color: #fff;
+  border: 1px solid #cdced1;
+  color: #ef4444;
+}
+
+.View-product-details {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.View-detail-item {
+  background: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.03);
+}
+
+.View-label {
+  font-weight: 600;
+  color: #64748b;
+  display: block;
+}
+
+.View-value {
+  color: #1e293b;
+  font-size: 1.1em;
+}
+
+
+.vertical-divider {
+  width: 100%;
+  background-color: #ebebeb;
+  height: 1px;
+  margin-top: 20px;
+}

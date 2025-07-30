@@ -1,0 +1,485 @@
+:root {
+  --mp-bg: #ffffff;
+  --mp-text-main: #0e264d; /* dark navy-ish */
+  --mp-text-link: #4c5567; /* muted grayish */
+  --mp-sell-bg: #d5ac28; /* golden yellow */
+  --mp-sell-bg-hover: #c39b1f;
+  --mp-radius-pill: 999px;
+  --mp-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+/* Reset-ish */
+.mp-nav-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background: var(--mp-bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.mp-nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+.mp-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--mp-text-main);
+  line-height: 1;
+}
+
+.mp-nav-center {
+  display: none; /* mobile default */
+}
+
+@media (min-width: 640px) {
+  .mp-nav-center {
+    display: flex;
+    align-items: center;
+    gap: clamp(1.5rem, 2.5vw, 3.5rem);
+  }
+}
+
+.mp-nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--mp-text-link);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.mp-nav-link:hover {
+  opacity: 0.7;
+}
+
+.mp-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mp-login-link {
+  background: none;
+  border: 0.5px solid gray;
+  padding: 8px 14px ;
+  box-shadow:  0 0 10px rgb(191, 191, 191);
+  font-size: 1rem;
+  border-radius: 32px;
+  font-weight: 500;
+  color: var(--mp-text-link);
+  cursor: pointer;
+}
+
+.mp-sell-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--mp-sell-bg);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--mp-radius-pill);
+  cursor: pointer;
+  box-shadow: var(--mp-shadow);
+  line-height: 1;
+  font-size: 1rem;
+}
+
+.mp-sell-btn:hover {
+  background: var(--mp-sell-bg-hover);
+}
+
+.mp-sell-plus {
+  font-size: 1.25em;
+  line-height: 1;
+}
+
+/* ----------------------------- */
+/* Modal styles                  */
+/* ----------------------------- */
+
+.mp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  z-index: 1000;
+}
+
+.mp-modal {
+  width: min(100%, 800px);
+  max-height: 95vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding-bottom: 1rem;
+  animation: mp-modal-pop 0.18s ease-out;
+}
+
+@keyframes mp-modal-pop {
+  from { transform: scale(0.96); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.mp-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mp-modal-header h2 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: var(--mp-text-main);
+}
+
+.mp-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--mp-text-link);
+}
+
+.mp-sell-form {
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.mp-form-row {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.mp-form-row label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--mp-text-main);
+}
+
+.mp-form-row input[type="text"],
+.mp-form-row input[type="number"],
+.mp-form-row select {
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+.mp-form-row input[type="file"] {
+  font-size: 0.95rem;
+}
+
+.mp-image-preview-wrapper {
+  margin-top: 0.5rem;
+  max-width: 160px;
+}
+
+.mp-image-preview {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.mp-modal-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.mp-btn-secondary,
+.mp-btn-primary {
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--mp-radius-pill);
+  cursor: pointer;
+  border: none;
+}
+
+.mp-btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.mp-btn-secondary:hover {
+  background: #d1d5db;
+}
+
+.mp-btn-primary {
+  background: var(--mp-sell-bg);
+  color: #fff;
+}
+
+.mp-btn-primary:hover {
+  background: var(--mp-sell-bg-hover);
+}
+
+/* AuthModal.css */
+
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.auth-box {
+  display: flex;
+  width: 850px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.auth-left {
+  width: 40%;
+  background-color: #0d1e40;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.auth-left div {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.auth-left i {
+  font-size: 20px;
+  color: #facc15; /* yellow */
+  margin-top: 3px;
+}
+
+.auth-left h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.auth-left p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.auth-right {
+  width: 60%;
+  padding: 35px 30px;
+  background: #fff;
+}
+
+.auth-right h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #0d1e40;
+}
+
+.auth-right p {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.auth-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-right input {
+  padding: 9px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.auth-right button {
+  padding: 8px 12px;
+  background-color: #0d1e40;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.auth-right .google-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 15px;
+}
+
+.auth-right .auth-tabs {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.auth-right .auth-tabs span {
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.auth-right .auth-tabs span.active::after {
+  content: '';
+  height: 2px;
+  background-color: #facc15;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.auth-right .switch-auth {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-right .switch-auth span {
+  color: #facc15;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.authclose-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .auth-box {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .auth-left, .auth-right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .auth-left {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+.profile-icon-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 260px;
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-icon-circle {
+  background-color: #001f3f;
+  color: gold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.profile-info span {
+  font-weight: bold;
+  display: block;
+}
+
+.profile-info p {
+  font-size: 12px;
+  color: #f0a500;
+  margin: 0;
+}
+
+.profile-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-menu li {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.profile-menu li:hover {
+  background-color: #f6f6f6;
+}
