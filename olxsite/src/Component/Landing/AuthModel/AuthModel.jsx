@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "../../../Style/Navbar.css"; // New CSS for styling
 import { useAuth } from "../../AuthContext/AuthContextApi";
+import img1 from "../../../Images/png-transparent-google-logo-google-search-google-account-redes-search-engine-optimization-text-service-thumbnail-removebg-preview.png"
+import { auth, googleProvider } from "../../AuthContext/Firebase";
+import { signInWithPopup } from "firebase/auth"; // Adjust the path if needed
+
 
 export default function AuthModal({ onClose}) {
     const { login } = useAuth();
@@ -17,6 +21,41 @@ const [verifyLoading, setVerifyLoading] = useState(false);
     password: "",
     otp: ""
   });
+
+
+
+const handleGoogleLogin = async () => {
+  try {
+  // ✅ Correct:
+const result = await signInWithPopup(auth, googleProvider);
+    const user = result.user;
+
+    // Send required fields to your backend directly
+    const res = await fetch("http://localhost:5000/api/auth/google-login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: user.email,
+        name: user.displayName,
+        googleId: user.uid,
+        avatar: user.photoURL,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      login(data.token, data.user); // your AuthContext method
+      alert("Login successful with Google!");
+      onClose();
+    } else {
+      alert(data.message || "Google login failed");
+    }
+  } catch (err) {
+    console.error("Google login error", err);
+    alert("Google login error");
+  }
+};
 
 
 
@@ -42,7 +81,7 @@ const handleSubmit = async (e) => {
 
     const data = await res.json();
 if (res.ok) {
-  login(data.token, data.user); // ✅ This sets token & user in context + localStorage
+  login(data.token, data.user); 
   alert("Login successful!");
   onClose();
 }
@@ -212,10 +251,11 @@ const handleVerifyOTP = async () => {
         <button type="submit">{isLogin ? "Continue" : "Register"}</button>
       </form>
       <div style={{ textAlign: "center", margin: "10px 0" }}>OR</div>
-      <button className="google-btn">
-        <img src="https://img.icons8.com/color/16/google-logo.png" alt="Google icon" />
-        Login with Google
-      </button>
+     <button className="google-btn" onClick={handleGoogleLogin}>
+  <img src={img1} alt="Google icon" className="image-login-google" />
+  Login with Google
+</button>
+
       <p className="switch-auth">
         {isLogin ? "Don't have an account?" : "Already have an account?"}
         <span onClick={toggleForm}>{isLogin ? "Register" : "Login"}</span>

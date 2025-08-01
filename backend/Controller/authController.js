@@ -105,7 +105,7 @@ exports.login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ message: "Wrong password" });
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
 res.status(200).json({
   message: "Login successful",
@@ -119,5 +119,43 @@ res.status(200).json({
 
   } catch (err) {
     res.status(500).json({ message: "Login error" });
+  }
+};
+
+
+exports.googleLogin = async (req, res) => {
+  const { email, name, googleId, avatar } = req.body;
+
+  try {
+    let user = await User.findOne({ email });
+
+    if (!user) {
+      // First time login via Google
+      user = await User.create({
+        name,
+        email,
+        googleId,
+        avatar,
+        isVerified: true, // Google verified users are trusted
+      });
+    }
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    res.status(200).json({
+      message: "Google login successful",
+      token,
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar,
+      },
+    });
+  } catch (err) {
+    console.error("Google login error", err);
+    res.status(500).json({ message: "Google login failed" });
   }
 };

@@ -14,13 +14,12 @@ const authMiddleware = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Find user by ID from token
-    const user = await userModel.findById(decoded.id).select("_id name email"); // only needed fields
+    const user = await userModel.findById(decoded.id).select("_id name email");
 
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });
     }
 
-    // Attach user data to request
     req.user = {
       id: user._id,
       name: user.name,
@@ -30,6 +29,11 @@ const authMiddleware = async (req, res, next) => {
     next(); // Proceed to controller
   } catch (error) {
     console.error("Auth Error:", error);
+
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ success: false, message: "Token expired" });
+    }
+
     return res.status(401).json({ success: false, message: "Unauthorized: Invalid token" });
   }
 };

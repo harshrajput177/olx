@@ -8,6 +8,7 @@ router.post("/send-otp", authController.sendOTP);
 router.post("/register", authController.register);
 router.post("/verify", authController.verifyOTP);
 router.post("/login", authController.login);
+router.post("/google-login", authController.googleLogin);
 
 // Protected Route (example)
 router.get("/profile", authMiddleware, async (req, res) => {

@@ -9,5 +9,6 @@ const {
 router.post("/send", sendMessage);
 router.get("/:user1/:user2", getMessages);
 
+
 module.exports = router;
 

@@ -351,6 +351,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  color: gray;
   font-size: 15px;
 }
 
@@ -482,4 +483,10 @@
 
 .profile-menu li:hover {
   background-color: #f6f6f6;
+}
+
+
+.image-login-google{
+  width: 23px;
+  height: 23px;
 }

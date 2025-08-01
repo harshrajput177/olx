@@ -8,6 +8,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const categories = ["Premium", "Cars", "Mobiles", "Fashion", "Property"];
 
 export default function Navbar() {
@@ -71,7 +72,7 @@ export default function Navbar() {
           <ul className="profile-menu">
             <li>Premium Business Listing</li>
             <li><Link to="/Wishlist">View Wishlist</Link></li>
-            <li>Your Business Listing</li>
+            <li><Link to="/ourlisting">Your Business Listing</Link></li>
             <li>Help</li>
             <li onClick={() => {
               logout();
