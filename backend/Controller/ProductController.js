@@ -16,8 +16,8 @@ const createProduct = async (req, res) => {
     const images = req.files ? req.files.map(file => file.filename) : [];
 
     const newProduct = new Product({
-      seller: req.user.id,            // ✅ Connected to logged-in user
-      sellerName: req.user.name,      // Optional: useful for display
+      seller: req.user.id,            
+      sellerName: req.user.name,      
       productName,
       mainCategory,
       subCategory,
