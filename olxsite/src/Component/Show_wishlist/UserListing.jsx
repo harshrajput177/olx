@@ -6,11 +6,14 @@ const YourListings = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // 👇 Use your deployed backend base URL
+  const BASE_URL = "https://backend-olx-j9e3.onrender.com";
+
   useEffect(() => {
     const fetchUserListings = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/products/get", {
+        const res = await axios.get(`${BASE_URL}/api/products/get`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -55,7 +58,7 @@ const YourListings = () => {
               <img
                 src={
                   item.images && item.images.length > 0
-                    ? `http://localhost:5000/uploads/${item.images[0]}`
+                    ? `${BASE_URL}/uploads/${item.images[0]}`
                     : "/placeholder.jpg"
                 }
                 alt={item.productName}
@@ -75,3 +78,4 @@ const YourListings = () => {
 };
 
 export default YourListings;
+
