@@ -34,17 +34,25 @@ export default function Navbar() {
             <span className="mp-logo">Marketplace</span>
           </div>
 
-       <nav className="mp-nav-center">
-  {categories.map((c) => (
-    <Link
-      key={c}
-      to={`/category/${encodeURIComponent(c)}`}
-      className="mp-nav-link"
-    >
-      {c}
-    </Link>
-  ))}
+   
+
+   <nav className="mp-nav-center">
+  {categories.map((c) => {
+    const path =
+      c === "Premium"
+        ? "/Premium"
+        : c === "Property"
+        ? "/Property"
+        : `/category/${encodeURIComponent(c)}`;
+
+    return (
+      <Link key={c} to={path} className="mp-nav-link">
+        {c}
+      </Link>
+    );
+  })}
 </nav>
+
 
 
           <div className="mp-nav-right">

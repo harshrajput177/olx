@@ -6,53 +6,73 @@ import ProductCard from "../ProductPlateform/Productcard";
 import "../../Style/MarketPLace.css";
 import { Link } from "react-router-dom";
 
+
+const filterFields = {
+  Bikes: ["brand", "model", "year", "kmDriven"],
+  Cars: ["brand", "model", "year", "kmDriven"],
+  Mobiles: ["brand", "model", "ram", "storage"],
+  "For Sell": ["bedrooms", "bathrooms", "furnishing", "area"],
+  "For Rent": ["bedrooms", "bathrooms", "furnishing", "area"],
+};
+
+
 const CategoryProducts = () => {
   const { mainCategory } = useParams(); // 👈 /category/:mainCategory
   const [allProducts, setAllProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
 
-  const fetchProducts = async () => {
-    try {
-    const res = await axios.get(
-  `${import.meta.env.VITE_API_BASE_URL}/api/products/get?subCategory=${mainCategory}`
-);
-
-      setAllProducts(res.data);
-      setFiltered(res.data);
-    } catch (err) {
-      console.error("Error fetching products:", err);
-    }
-  };
+  const dynamicFields = filterFields[mainCategory] || [];
 
   useEffect(() => {
-    fetchProducts();
-  }, [mainCategory]); // 👈 re-fetch if mainCategory changes
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_BASE_URL}/api/products/get?subCategory=${mainCategory}`
+        );
+        setAllProducts(res.data);
+        setFiltered(res.data);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      }
+    };
 
-  const handleFilter = ({ location, min, max }) => {
+    fetchProducts();
+  }, [mainCategory]);
+
+  const handleFilter = (filters) => {
     let result = [...allProducts];
-    if (location) {
+
+    if (filters.location)
       result = result.filter((p) =>
-        p.location.toLowerCase().includes(location.toLowerCase())
+        p.location.toLowerCase().includes(filters.location.toLowerCase())
       );
+
+    if (filters.min) result = result.filter((p) => p.price >= parseInt(filters.min));
+    if (filters.max) result = result.filter((p) => p.price <= parseInt(filters.max));
+
+    // Apply dynamic filters
+    for (const key of dynamicFields) {
+      if (filters[key]) {
+        result = result.filter((p) =>
+          (p[key] || "").toString().toLowerCase().includes(filters[key].toLowerCase())
+        );
+      }
     }
-    if (min) result = result.filter((p) => p.price >= parseInt(min));
-    if (max) result = result.filter((p) => p.price <= parseInt(max));
+
     setFiltered(result);
   };
 
-
   return (
     <div className="app-container">
-      <Filters onFilter={handleFilter} />
+      <Filters onFilter={handleFilter} dynamicFields={dynamicFields} />
       <div className="products-section">
         <h2>Fresh Recommendations in {mainCategory}</h2>
-        
         <div className="products-grid">
           {filtered.length > 0 ? (
             filtered.map((product) => (
-            <Link to={`/product/${product._id}`} key={product._id}>
-              <ProductCard product={product} />
-           </Link>
+              <Link to={`/product/${product._id}`} key={product._id}>
+                <ProductCard product={product} />
+              </Link>
             ))
           ) : (
             <p>No products found in this category.</p>
@@ -64,4 +84,3 @@ const CategoryProducts = () => {
 };
 
 export default CategoryProducts;
-

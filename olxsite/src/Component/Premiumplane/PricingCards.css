@@ -3,14 +3,14 @@
 .premium-pricing-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
   gap: 1.5rem;
   padding: 2rem  8rem;
 }
 
 .premium-card {
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 80%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 90%;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem 2rem;
@@ -64,7 +64,7 @@
 
 /* Color themes */
 .basic button {
-  background-color: #bdbdbd;
+  background-color: #d9d9d9;
 }
 
 .silver button {
@@ -83,8 +83,6 @@
   background-color: #424242;
 }
 
-
-/* Basic border and glow */
 .basic {
   border: 2px solid #bdbdbd;
   box-shadow: 0 0 8px rgba(189, 189, 189, 0.3);
@@ -103,4 +101,32 @@
 .oem {
   border: 2px solid #212121;
   box-shadow: 0 0 12px rgba(33, 33, 33, 0.3);
+}
+
+
+
+.basic h2{
+color: #bdbdbd;
+}
+
+.silver h2{
+ color: #2196f3;
+}
+
+.gold h2 {
+color: #ce6000;
+}
+
+.oem {
+  border: 2px solid #212121;
+  box-shadow: 0 0 12px rgba(33, 33, 33, 0.3);
+}
+
+
+.gold h3 {
+color: #ce6000;
+}
+
+.silver h3{
+ color: #2196f3;
 }

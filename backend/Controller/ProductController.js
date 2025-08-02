@@ -39,34 +39,30 @@ const createProduct = async (req, res) => {
 
 
 const getProducts = async (req, res) => {
+  const { location, mainCategory, subCategory, keyword } = req.query;
+
+  const filter = {};
+
+  if (location) filter.location = { $regex: location, $options: "i" };
+  if (mainCategory) filter.mainCategory = mainCategory;
+  if (subCategory) filter.subCategory = subCategory;
+
+  if (keyword) {
+    filter.$or = [
+      { productName: { $regex: keyword, $options: "i" } },
+      { description: { $regex: keyword, $options: "i" } },
+      { brand: { $regex: keyword, $options: "i" } },
+    ];
+  }
+
   try {
-    const { mainCategory, subCategory, location } = req.query;
-
-    // Initialize dynamic filter object
-    const filter = {};
-  if (req.query.mainCategory) {
-      filter.mainCategory = req.query.mainCategory;
-    }
-
-    if (req.query.subCategory) {
-      filter.subCategory = req.query.subCategory;
-    }
-
-    if (req.query.type) {
-      filter.type = req.query.type;
-    }
-
-    // Fetch products, sort by latest, and populate seller (user) details
-    const products = await   Product.find(filter)
-      .populate("seller", "name email") // Only select name and email from user
-      .sort({ createdAt: -1 });
-
-    res.status(200).json(products);
-  } catch (error) {
-    console.error("Fetching products error:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+    const products = await Product.find(filter);
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err });
   }
 };
+
 
 const getSingleProduct = async (req, res) => {
   try {

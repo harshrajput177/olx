@@ -10,17 +10,22 @@ const SearchResults = () => {
   const query = new URLSearchParams(useLocation().search);
 
   const location = query.get("location");
+  const keyword = query.get("keyword"); // ✅ Add this
   const mainCategory = query.get("mainCategory");
   const subCategory = query.get("subCategory");
 
-  // 🟡 Fetch search results
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
         const res = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/api/products/get`,
           {
-            params: { location, mainCategory, subCategory },
+            params: {
+              location,
+              keyword, // ✅ Pass keyword to backend
+              mainCategory,
+              subCategory,
+            },
           }
         );
         setProducts(res.data);
@@ -30,14 +35,12 @@ const SearchResults = () => {
     };
 
     fetchSearchResults();
-  }, [location, mainCategory, subCategory]);
-
-
+  }, [location, keyword, mainCategory, subCategory]);
 
   return (
     <div className="search-results-container">
       <div className="serach-filter-section">
-        <Filter />
+        <Filter onFilter={() => {}} /> {/* You can enhance this later if needed */}
       </div>
 
       <div className="results-section">
@@ -46,9 +49,7 @@ const SearchResults = () => {
           {products.length > 0 ? (
             products.map((product) => (
               <Link to={`/product/${product._id}`} key={product._id}>
-                <ProductCard
-                  product={product}
-                />
+                <ProductCard product={product} />
               </Link>
             ))
           ) : (
