@@ -16,6 +16,28 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Middleware
+
+
+// ✅ CORS configuration
+const allowedOrigins = [
+  "https://olx-h0p5.onrender.com",
+  "http://localhost:5173",
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow cookies, headers, etc.
+  })
+);
+
+
 app.use(cors());
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
