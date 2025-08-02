@@ -6,11 +6,13 @@ const WishlistPage = () => {
   const [wishlistItems, setWishlistItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL
+
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/wishlist", {
+        const res = await axios.get("https://backend-olx-j9e3.onrender.com/api/wishlist", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -56,7 +58,7 @@ const WishlistPage = () => {
             <img
   src={
     item.images && item.images.length > 0
-      ? `http://localhost:5000/uploads/${item.images[0]}`
+      ? `${BASE_URL}/uploads/${item.images[0]}`
       : "/placeholder.jpg"
   }
   alt={item.productName}
