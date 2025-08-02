@@ -490,3 +490,28 @@
   width: 23px;
   height: 23px;
 }
+
+
+
+
+/* Submit button styling */
+.mp-submit-btn {
+  width: 100%;
+  padding: 12px 30px;
+  background-color: #e4be00;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+
+/* Focus accessibility */
+.mp-submit-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+}

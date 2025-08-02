@@ -9,6 +9,7 @@ import ProductDetails from "./Component/ViewProduct/Viewproduct";
 import WishlistPage from "./Component/Show_wishlist/Showlist";
 import YourListings from "./Component/Show_wishlist/UserListing";
 import PricingCards from "./Component/Premiumplane/PriceCards";
+import Footer from "./Component/Footer";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
                   <Route path="/ourlisting" element={<YourListings />} />
                     <Route path="/Premium" element={<PricingCards />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

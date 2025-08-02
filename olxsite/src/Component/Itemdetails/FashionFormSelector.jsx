@@ -1,5 +1,5 @@
 import React from "react";
-// import '../../Style/'
+import '../../Style/itemsDetails.css'
 
 export default function FashionFormSelector({ fashionType, setFashionType, data = {}, setData }) {
   const handleFashionChange = (e) => {
