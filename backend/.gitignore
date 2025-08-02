@@ -36,9 +36,7 @@ coverage/
 package-lock.json
 yarn.lock
 
-# Optional if you’re using uploads
-uploads/
-public/uploads/
+
 
 # For React apps in /client folder
 /client/node_modules/

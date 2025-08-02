@@ -14,6 +14,8 @@ const [otpVerified, setOtpVerified] = useState(false);
 const [otpLoading, setOtpLoading] = useState(false);
 const [verifyLoading, setVerifyLoading] = useState(false);
 
+    const BASE_URL = "https://backend-olx-j9e3.onrender.com";
+
 
   const [form, setForm] = useState({
     name: "",
@@ -31,7 +33,7 @@ const result = await signInWithPopup(auth, googleProvider);
     const user = result.user;
 
     // Send required fields to your backend directly
-    const res = await fetch("http://localhost:5000/api/auth/google-login", {
+    const res = await fetch(`${BASE_URL}/api/auth/google-login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -73,7 +75,7 @@ const handleSubmit = async (e) => {
 
   if (isLogin) {
     // Login flow
-    const res = await fetch("http://localhost:5000/api/auth/login", {
+    const res = await fetch(`${BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -95,7 +97,7 @@ else {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/api/auth/register", {
+    const res = await fetch(`${BASE_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -120,7 +122,7 @@ const handleSendOTP = async () => {
 
   setOtpLoading(true); // show loading
 
-  const res = await fetch("http://localhost:5000/api/auth/send-otp", {
+  const res = await fetch(`${BASE_URL}/api/auth/send-otp`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ name, email, password }),
@@ -142,7 +144,7 @@ const handleSendOTP = async () => {
 const handleVerifyOTP = async () => {
   setVerifyLoading(true); // start loading
 
-  const res = await fetch("http://localhost:5000/api/auth/verify", {
+  const res = await fetch(`${BASE_URL}/api/auth/verify`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email: form.email, otp: form.otp }),
