@@ -20,6 +20,8 @@ const CategoryProducts = () => {
   const { mainCategory } = useParams(); // 👈 /category/:mainCategory
   const [allProducts, setAllProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [showFilters, setShowFilters] = useState(false);
+
 
   const dynamicFields = filterFields[mainCategory] || [];
 
@@ -64,7 +66,14 @@ const CategoryProducts = () => {
 
   return (
     <div className="app-container">
-      <Filters onFilter={handleFilter} dynamicFields={dynamicFields} />
+   <button className="toggle-filter-btn" onClick={() => setShowFilters(!showFilters)}>
+  {showFilters ? "Close Filters" : "Show Filters"}
+</button>
+
+{/* 👇 Slide-in filter container */}
+<div className={`filters-wrapper ${showFilters ? "open" : ""}`}>
+  <Filters onFilter={handleFilter} dynamicFields={dynamicFields} />
+</div>
       <div className="products-section">
         <h2>Fresh Recommendations in {mainCategory}</h2>
         <div className="products-grid">

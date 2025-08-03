@@ -223,7 +223,7 @@ justify-content: space-between;
   }
 
   .filters-container {
-    width: 100%;
+    width: 90%;
     padding: 15px;
     box-shadow: none;
     border: 1px solid #e5e7eb;
@@ -320,5 +320,73 @@ justify-content: space-between;
   .reset {
     font-size: 13px;
     padding: 9px;
+  }
+}
+
+
+
+/* Mobile view mein button dikhana */
+.toggle-filter-btn {
+  display: none;
+  background-color: #ffc400;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  margin: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Filter panel ko left se slide karwana */
+.filters-wrapper {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Jab open ho filter */
+.filters-wrapper.open {
+  left: 0;
+}
+
+/* Mobile view ke liye show karo */
+@media screen and (max-width: 768px) {
+  .toggle-filter-btn {
+    display: block;
+  }
+
+  .filters-wrapper {
+    width: 80%;
+  }
+}
+
+/* Desktop view mein normal layout rakhna */
+@media screen and (min-width: 769px) {
+
+
+  .filters-wrapper {
+    position: static;
+    width: 25%;
+    height: auto;
+    box-shadow: none;
+    left: 0 !important;
+  }
+
+  .toggle-filter-btn {
+    display: none;
+  }
+
+  .app-container {
+    display: flex;
+    gap: 2rem;
   }
 }

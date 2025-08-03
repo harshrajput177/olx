@@ -78,6 +78,7 @@ export default function Navbar() {
             </div>
           </div>
           <ul className="profile-menu">
+            <li><Link to="/Premium">Premium Purchase</Link></li>
             <li>Premium Business Listing</li>
             <li><Link to="/Wishlist">View Wishlist</Link></li>
             <li><Link to="/ourlisting">Your Business Listing</Link></li>
