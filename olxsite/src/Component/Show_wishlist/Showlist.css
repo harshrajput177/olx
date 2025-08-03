@@ -61,3 +61,68 @@
   margin-bottom: 1rem;
   opacity: 0.8;
 }
+
+
+@media (max-width: 768px) {
+  .Show-wishlist-page {
+    padding: 1rem;
+    height: auto; /* let it grow with content */
+  }
+
+  .Show-wishlist-page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .Show-wishlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .Show-wishlist-card img {
+    height: 180px;
+  }
+
+  .Show-wishlist-info h3 {
+    font-size: 1rem;
+  }
+
+  .Show-wishlist-info p {
+    font-size: 0.9rem;
+  }
+
+  .empty-wishlist {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+
+  .empty-wishlist img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Show-wishlist-page h2 {
+    font-size: 1.25rem;
+  }
+
+  .Show-wishlist-grid {
+    grid-template-columns: repeat(2, 1fr); /* one card per row */
+  }
+
+  .Show-wishlist-card img {
+    height: 160px;
+  }
+
+  .Show-wishlist-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .Show-wishlist-info p {
+    font-size: 0.85rem;
+  }
+
+  .empty-wishlist img {
+    width: 120px;
+  }
+}

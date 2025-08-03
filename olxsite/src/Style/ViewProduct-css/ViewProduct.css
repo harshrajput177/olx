@@ -174,3 +174,112 @@
   height: 1px;
   margin-top: 20px;
 }
+
+
+@media (max-width: 768px) {
+  .View-product-page {
+    padding: 20px 16px;
+  }
+
+  .View-back-link {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .View-product-container {
+    flex-direction: column;
+  }
+
+  .View-product-image {
+    min-width: 100%;
+  }
+
+  .View-image-placeholder {
+    height: 300px;
+    font-size: 1.5rem;
+  }
+
+  .View-tab {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .View-product-info {
+    padding: 12px;
+    min-width: 100%;
+    margin-top: 20px;
+  }
+
+  .View-price {
+    font-size: 22px;
+  }
+
+  .View-summary,
+  .View-location,
+  .View-posted {
+    font-size: 16px;
+  }
+
+  .View-seller-box {
+    padding: 12px;
+    margin-top: 16px;
+  }
+
+  .View-seller-title {
+    font-size: 20px;
+  }
+
+  .View-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .View-chat-btn,
+  .View-fav-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .View-product-details {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .View-detail-item {
+    padding: 8px 12px;
+  }
+
+  .View-label {
+    font-size: 13px;
+  }
+
+  .View-value {
+    font-size: 15px;
+  }
+
+  .vertical-divider {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .View-back-link {
+    font-size: 16px;
+  }
+
+  .View-seller-title {
+    font-size: 18px;
+  }
+
+  .View-chat-btn,
+  .View-fav-btn {
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .View-product-details {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}

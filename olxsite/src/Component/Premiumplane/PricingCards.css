@@ -130,3 +130,73 @@ color: #ce6000;
 .silver h3{
  color: #2196f3;
 }
+
+
+/* Responsive styles for tablets and smaller screens */
+@media (max-width: 1024px) {
+  .premium-pricing-container {
+    padding: 2rem 4rem;
+    justify-content: center;
+  }
+
+  .premium-card {
+    width: 100%;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .premium-pricing-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
+
+  .premium-card {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .premium-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .premium-card h3 {
+    font-size: 2rem;
+  }
+
+  .premium-card h3 span {
+    font-size: 1rem;
+  }
+
+  .premium-card ul li {
+    font-size: 1rem;
+  }
+
+  .premium-card button {
+    font-size: 0.95rem;
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .premium-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .premium-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .premium-card ul li {
+    font-size: 0.95rem;
+    margin: 0.75rem 0;
+  }
+
+  .premium-card button {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+  }
+}

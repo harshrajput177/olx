@@ -15,20 +15,25 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/category/:mainCategory" element={<CategoryProducts />} />
-          <Route path="/search" element={<SearchResults />} />
-              <Route path="/product/:id" element={<ProductDetails />} />
-                 <Route path="/Wishlist" element={<WishlistPage />} />
-                  <Route path="/ourlisting" element={<YourListings />} />
-                    <Route path="/Premium" element={<PricingCards />} />
-      </Routes>
-      <Footer />
+      <div className="app-wrapper">
+        <NavBar />
+        <div className="app-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/category/:mainCategory" element={<CategoryProducts />} />
+            <Route path="/search" element={<SearchResults />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/Wishlist" element={<WishlistPage />} />
+            <Route path="/ourlisting" element={<YourListings />} />
+            <Route path="/Premium" element={<PricingCards />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 };
+
 
 export default App;
 
