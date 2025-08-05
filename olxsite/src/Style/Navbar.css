@@ -443,6 +443,14 @@
   border-bottom: 1px solid #eee;
 }
 
+.chat-icon{
+  color: gray;
+}
+
+.AccountCircleIcon{
+  color: gray;
+}
+
 .profile-icon-circle {
   background-color: #001f3f;
   color: gold;
@@ -621,14 +629,15 @@
     flex-direction: row-reverse;
     align-items: center;
     justify-content: end;
-    width: 80%;
-    gap: 0.15rem;
+    width: 70%;
+    gap: 0.24rem;
   }
 
   .mp-login-link,
   .mp-sell-btn {
-    width: 50%;
     text-align: center;
+    padding: 6px 9px;
+    font-size: 1rem;
     justify-content: end;
   }
 
@@ -636,6 +645,10 @@
     padding: 0.5rem;
     align-items: flex-start;
   }
+
+  .mp-sell-plus {
+  line-height: 1;
+}
 
   .mp-modal {
     width: 100%;

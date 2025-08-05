@@ -10,6 +10,8 @@ import WishlistPage from "./Component/Show_wishlist/Showlist";
 import YourListings from "./Component/Show_wishlist/UserListing";
 import PricingCards from "./Component/Premiumplane/PriceCards";
 import Footer from "./Component/Footer";
+import Inbox from "./Component/ViewProduct/ChatInbox";
+
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const App = () => {
             <Route path="/Wishlist" element={<WishlistPage />} />
             <Route path="/ourlisting" element={<YourListings />} />
             <Route path="/Premium" element={<PricingCards />} />
+            <Route path="/chat" element={<Inbox />} />
           </Routes>
         </div>
         <Footer />

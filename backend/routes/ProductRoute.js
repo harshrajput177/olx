@@ -46,7 +46,7 @@ const upload = multer({ storage });
 // POST route with multi-image support (max 3 images)
 router.post("/create",   authMiddleware, upload.array("images", 3), createProduct);
 
-router.get("/get", getProducts);
+router.get("/get", authMiddleware, getProducts);
 
 router.get("/getone/:id", getSingleProduct);
 

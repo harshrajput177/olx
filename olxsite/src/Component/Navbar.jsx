@@ -7,6 +7,7 @@ import { useAuth } from "../Component/AuthContext/AuthContextApi";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { motion, AnimatePresence } from "framer-motion";
+import ChatIcon from '@mui/icons-material/Chat';
 
 
 const categories = ["Premium", "Cars", "Mobiles", "Fashion", "Property"];
@@ -31,7 +32,7 @@ export default function Navbar() {
       <header className="mp-nav-wrapper">
         <div className="mp-nav">
           <div className="mp-nav-left">
-            <span className="mp-logo">Marketplace</span>
+            <span className="mp-logo">Market</span>
           </div>
 
    
@@ -59,7 +60,7 @@ export default function Navbar() {
 
          {isLoggedIn && (
   <div className="profile-icon-wrapper" onClick={toggleProfile}>
-    <AccountCircleIcon />
+    <AccountCircleIcon   className="AccountCircleIcon"/>
     <AnimatePresence>
       {profileOpen && (
         <motion.div
@@ -93,6 +94,11 @@ export default function Navbar() {
   </div>
 )}
 
+{isLoggedIn && (
+  <Link to="/chat">
+    <ChatIcon className="chat-icon" />
+  </Link>
+)}
 
             <div  ><Link to="/Wishlist"><FavoriteBorderIcon className="wishlist-show"/></Link></div>
             {!isLoggedIn && (
