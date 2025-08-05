@@ -10,7 +10,7 @@ export default function FashionFormSelector({ fashionType, setFashionType, data 
   return (
     <div className="fashion-form-selector">
       <label>Fashion Type:</label>
-      <select value={fashionType} onChange={handleFashionChange}>
+      <select  className="select-option" value={fashionType} onChange={handleFashionChange}>
         <option value="">Select Type</option>
         <option value="Men">Men</option>
         <option value="Women">Women</option>

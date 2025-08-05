@@ -1,4 +1,5 @@
 import React from "react";
+import '../../Style/itemsDetails.css'
 
 export default function MobileDetails({ data, setData }) {
   return (
@@ -21,6 +22,7 @@ export default function MobileDetails({ data, setData }) {
 
       <label>Condition:</label>
       <select
+      className="select-option"
         value={data.condition || ""}
         onChange={(e) => setData({ ...data, condition: e.target.value })}
       >

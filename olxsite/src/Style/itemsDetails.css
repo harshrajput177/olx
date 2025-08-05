@@ -32,8 +32,12 @@ label {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  max-width: 500px;
+  max-width: 600px;
   margin: 20px auto;
+}
+
+.select-option{
+   width: 98%;
 }
 
 /* Section-specific spacing */
