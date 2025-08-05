@@ -1,11 +1,16 @@
 .filters-container {
-  width: 320px;
+  width: 85%;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 0;
 }
 
+/* Filter panel ko left se slide karwana */
+.filters-wrapper {
+  z-index: 0 !important;
+}
 .filters-container h2 {
   font-size: 20px;
   margin-bottom: 20px;
@@ -358,16 +363,6 @@ justify-content: space-between;
   left: 0;
 }
 
-/* Mobile view ke liye show karo */
-@media screen and (max-width: 768px) {
-  .toggle-filter-btn {
-    display: block;
-  }
-
-  .filters-wrapper {
-    width: 80%;
-  }
-}
 
 /* Desktop view mein normal layout rakhna */
 @media screen and (min-width: 769px) {
