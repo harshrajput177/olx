@@ -13,7 +13,7 @@ const YourListings = () => {
     const fetchUserListings = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get(`${BASE_URL}/api/products/get`, {
+        const res = await axios.get(`${BASE_URL}/api/products/mylistings`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

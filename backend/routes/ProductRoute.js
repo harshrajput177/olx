@@ -25,7 +25,7 @@
 const express = require("express");
 const multer = require("multer");
 const path = require("path");
-const { createProduct, getProducts, getSingleProduct } = require("../Controller/ProductController");
+const { createProduct, getProducts, getSingleProduct, getUserProducts } = require("../Controller/ProductController");
 const authMiddleware = require("../Middleware/Middleware");
 
 const router = express.Router();
@@ -46,8 +46,10 @@ const upload = multer({ storage });
 // POST route with multi-image support (max 3 images)
 router.post("/create",   authMiddleware, upload.array("images", 3), createProduct);
 
-router.get("/get", authMiddleware, getProducts);
+router.get("/get",  getProducts);
 
 router.get("/getone/:id", getSingleProduct);
+
+router.get("/mylistings", authMiddleware, getUserProducts);
 
 module.exports = router;

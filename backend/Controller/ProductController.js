@@ -64,6 +64,18 @@ const getProducts = async (req, res) => {
 };
 
 
+const getUserProducts = async (req, res) => {
+  try {
+    const userId = req.user._id; // token se mila
+    const products = await Product.find({ seller: userId }).sort({ createdAt: -1 });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: "Server error", error: err });
+  }
+};
+
+
+
 const getSingleProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -84,5 +96,6 @@ const getSingleProduct = async (req, res) => {
 module.exports = {
   createProduct,
   getProducts,
-  getSingleProduct 
+  getSingleProduct,
+  getUserProducts
 };
