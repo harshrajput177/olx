@@ -56,7 +56,6 @@ export default function Navbar() {
 
 
           <div className="mp-nav-right">
-            <div><Link to="/Wishlist"><FavoriteBorderIcon /></Link></div>
 
          {isLoggedIn && (
   <div className="profile-icon-wrapper" onClick={toggleProfile}>
@@ -95,6 +94,7 @@ export default function Navbar() {
 )}
 
 
+            <div  ><Link to="/Wishlist"><FavoriteBorderIcon className="wishlist-show"/></Link></div>
             {!isLoggedIn && (
               <button className="mp-login-link" onClick={handleLoginClick}>
                 Login

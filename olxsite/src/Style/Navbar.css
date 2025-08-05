@@ -261,6 +261,11 @@
   position: relative;
 }
 
+
+.wishlist-show{
+      background-color: white; 
+}
+
 .auth-left {
   width: 40%;
   background-color: #0d1e40;
@@ -487,6 +492,14 @@
 
 
 
+.wishlist-show{
+  font-size: 28px !important;
+  margin-left: 5px;
+  color: gray;
+      background-color: white; 
+}
+
+
 
 /* Submit button styling */
 .mp-submit-btn {
@@ -605,7 +618,7 @@
   }
 
   .mp-nav-right {
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     justify-content: end;
     width: 80%;
