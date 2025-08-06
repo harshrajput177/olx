@@ -23,6 +23,7 @@ const port = process.env.PORT || 5000;
 const allowedOrigins = [
   "https://olx-h0p5.onrender.com",
   "http://localhost:5173",
+  "http://localhost:5174",
 ];
 
 app.use(

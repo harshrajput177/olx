@@ -7,7 +7,8 @@ const YourListings = () => {
   const [loading, setLoading] = useState(true);
 
   // 👇 Use your deployed backend base URL
-  const BASE_URL = "https://backend-olx-j9e3.onrender.com";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
   useEffect(() => {
     const fetchUserListings = async () => {

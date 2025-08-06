@@ -12,10 +12,10 @@ const WishlistPage = () => {
     const fetchWishlist = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("https://backend-olx-j9e3.onrender.com/api/wishlist", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+   const res = await axios.get(`${BASE_URL}/api/wishlist`, {
+         headers: {
+    Authorization: `Bearer ${token}`,
+  },
         });
         console.log("Wishlist response:", res.data);
  

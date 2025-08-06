@@ -82,7 +82,7 @@
 /* Section title */
 .products-section h2 {
   font-size: 22px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: bold;
   color: #1f2937;
 }
@@ -98,7 +98,7 @@ flex-wrap: wrap;
 .product-image{
   object-fit: cover;
   width: 100%;
-  height: 280px;
+  height: 260px;
 }
 
 /* Single product card */
@@ -143,7 +143,7 @@ justify-content: space-between;
   font-size: 17px;
   font-weight: 400;
   color: #111827;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .product-description{
@@ -157,7 +157,7 @@ justify-content: space-between;
   justify-content: space-between;
   font-size: 13px;
   color: #6b7280;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 

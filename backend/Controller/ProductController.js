@@ -66,13 +66,17 @@ const getProducts = async (req, res) => {
 
 const getUserProducts = async (req, res) => {
   try {
-    const userId = req.user._id; // token se mila
-    const products = await Product.find({ seller: userId }).sort({ createdAt: -1 });
+    const userId = req.user._id;
+
+    const products = await Product.find({ seller: userId });
+    console.log("🧾 Found products:", products);
+
     res.json(products);
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err });
   }
 };
+
 
 
 

@@ -2,7 +2,7 @@
 
 .inbox-container {
     padding: 40px;
-  max-width: 600px;
+  max-width: 400px;
   height: 100vh;
   margin: 30px  10px;
   background-color: #fff;
@@ -59,12 +59,13 @@
   color: #157347;
 }
 
-.chat-item {
+.Inbox-chat-item {
   display: flex;
   align-items: flex-start;
   position: relative;
-  padding: 16px 20px;
-  border-top: 1px solid #eee;
+  padding: 14px 15px;
+  border-top: 1px solid #dcdcdc;
+  border-bottom: 1px solid rgb(233, 233, 233);
 }
 
 .avatar {
@@ -77,6 +78,12 @@
 
 .chat-details {
   flex-grow: 1;
+}
+
+.chat-person-icon{
+  padding: 5px  9px;
+  color: gray;
+  font-size: 32px !important;
 }
 
 .chat-name-time {

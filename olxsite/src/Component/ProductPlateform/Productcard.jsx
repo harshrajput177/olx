@@ -15,47 +15,64 @@ export default function ProductCard({ product }) {
       ? `${BASE_URL}/uploads/${product.images[0]}`
       : "https://via.placeholder.com/200x150?text=No+Image";
 
-  useEffect(() => {
-    const fetchWishlistStatus = async () => {
-      try {
-        const res = await axios.get(`${BASE_URL}/api/wishlist/check/${product._id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
-        console.log("✅ Wishlist check:", res.data);
-        setIsWishlisted(res.data.isWishlisted);
-      } catch (err) {
-        console.error("Wishlist check error:", err.response?.data?.message || err.message);
-      }
-    };
 
-    if (product?._id) fetchWishlistStatus();
-  }, [product._id, BASE_URL]);
 
-  const handleWishlistClick = async (e) => {
-    e.preventDefault();
-    if (loading) return;
+      useEffect(() => {
+  const fetchWishlistStatus = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.warn("❌ No token found, skipping wishlist check");
+      return;
+    }
 
-    setLoading(true);
     try {
-      const endpoint = isWishlisted ? "remove" : "add";
-      await axios.post(
-        `${BASE_URL}/api/wishlist/${endpoint}`,
-        { productId: product._id },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
-      setIsWishlisted(!isWishlisted);
+      const res = await axios.get(`${BASE_URL}/api/wishlist/check/${product._id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setIsWishlisted(res.data.isWishlisted);
     } catch (err) {
-      console.error("Wishlist error:", err.response?.data?.message || err.message);
-    } finally {
-      setLoading(false);
+      console.error("Wishlist check error:", err.response?.data?.message || err.message);
     }
   };
+
+  if (product?._id) fetchWishlistStatus();
+}, [product._id, BASE_URL]);
+
+   
+
+ const handleWishlistClick = async (e) => {
+  e.preventDefault();
+  if (loading) return;
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    console.warn("❌ No token found. Please log in.");
+    // Optionally redirect to login or show a toast
+    return;
+  }
+
+  setLoading(true);
+  try {
+    const endpoint = isWishlisted ? "remove" : "add";
+    await axios.post(
+      `${BASE_URL}/api/wishlist/${endpoint}`,
+      { productId: product._id },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    setIsWishlisted(!isWishlisted);
+  } catch (err) {
+    console.error("Wishlist error:", err.response?.data?.message || err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="product-card">
