@@ -4,6 +4,10 @@ import { useAuth } from "../../AuthContext/AuthContextApi";
 import img1 from "../../../Images/png-transparent-google-logo-google-search-google-account-redes-search-engine-optimization-text-service-thumbnail-removebg-preview.png"
 import { auth, googleProvider } from "../../AuthContext/Firebase";
 import { signInWithPopup } from "firebase/auth"; // Adjust the path if needed
+import SecurityIcon from '@mui/icons-material/Security';
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import FlashOnIcon from '@mui/icons-material/FlashOn';
+
 
 
 export default function AuthModal({ onClose}) {
@@ -166,29 +170,32 @@ const handleVerifyOTP = async () => {
   return (
   <div className="auth-modal">
   <div className="auth-box">
-    <div className="auth-left">
-      <div>
-        <i className="fas fa-box"></i>
-        <div>
-          <h4>Manage your orders</h4>
-          <p>Track your orders, delivery and returns</p>
-        </div>
-      </div>
-      <div>
-        <i className="fas fa-handshake"></i>
-        <div>
-          <h4>Transact with buyers and sellers</h4>
-          <p>Respond to chats, offers and more</p>
-        </div>
-      </div>
-      <div>
-        <i className="fas fa-bell"></i>
-        <div>
-          <h4>Personalized notifications and alerts</h4>
-          <p>Get matching alerts for what you need</p>
-        </div>
-      </div>
+<div className="auth-left">
+  <div>
+    <SecurityIcon  className="login-icon"/>
+    <div className="login-access">
+      <h4>Secure Account Access</h4>
+      <p>All your login and activity is protected with industry-level encryption</p>
     </div>
+  </div>
+
+  <div>
+    <StorefrontIcon className="login-icon"/>
+    <div className="login-access">
+      <h4>Seamless Buying & Selling</h4>
+      <p>Connect, negotiate, and close deals with real-time chat and alerts</p>
+    </div>
+  </div>
+
+  <div>
+    <FlashOnIcon className="login-icon"/>
+    <div  className="login-access">
+      <h4>Instant Notifications</h4>
+      <p>Stay updated with real-time messages, offers, and price drops</p>
+    </div>
+  </div>
+</div>
+
 
     <div className="auth-right">
       <div className="auth-tabs">
@@ -200,6 +207,7 @@ const handleVerifyOTP = async () => {
       <form onSubmit={handleSubmit}>
         {!isLogin && (
           <input
+          className="login-input reg-name"
             type="text"
             name="name"
             placeholder="Enter Name"
@@ -209,6 +217,7 @@ const handleVerifyOTP = async () => {
           />
         )}
         <input
+           className="login-input"
           type="email"
           name="email"
           placeholder="Enter Email"
@@ -217,6 +226,7 @@ const handleVerifyOTP = async () => {
           required
         />
         <input
+           className="login-input"
           type="password"
           name="password"
           placeholder="Enter Password"
@@ -235,6 +245,7 @@ const handleVerifyOTP = async () => {
     {otpSent && (
       <>
         <input
+           className="login-input"
           type="text"
           name="otp"
           placeholder="Enter OTP"

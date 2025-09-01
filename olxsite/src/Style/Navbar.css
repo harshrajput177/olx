@@ -280,7 +280,7 @@
 .auth-left div {
   display: flex;
   align-items: flex-start;
-  gap: 15px;
+  gap: 12px;
 }
 
 .auth-left i {
@@ -297,6 +297,7 @@
 
 .auth-left p {
   font-size: 14px;
+  font-weight: 200 !important;
   margin: 0;
 }
 
@@ -307,6 +308,7 @@
 }
 
 .auth-right h2 {
+padding-top: 5px;
   font-size: 24px;
   margin-bottom: 10px;
   font-weight: bold;
@@ -316,7 +318,7 @@
 .auth-right p {
   font-size: 14px;
   color: #6b7280;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .auth-right form {
@@ -325,13 +327,25 @@
   gap: 15px;
 }
 
-.auth-right input {
+/* .auth-right input {
+  width: 90% !important;
   padding: 9px 15px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 6px;
+} */
+
+.login-input{
+  width: 93% !important;
+  padding: 9px 15px;
+    font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
+.reg-name{
+  width: 94% !important;
+}
 .auth-right button {
   padding: 8px 12px;
   background-color: #0d1e40;
@@ -395,7 +409,54 @@
   right: 15px;
   background: none;
   border: none;
-  font-size: 20px;
+  padding: 4px  10px;
+  border-radius: 50%;
+  background-color:#facc15;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.login-access{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.login-icon{
+  color: #f0c025;
+}
+
+
+
+.mp-location-select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  font-size: 16px;
+  min-width: 250px;
+}
+
+.mp-search-form {
+  display: flex;
+  flex: 1;
+}
+
+.mp-search-input {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 6px 0 0 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.mp-search-btn {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background: #0f172a;
+  color: white;
   cursor: pointer;
 }
 

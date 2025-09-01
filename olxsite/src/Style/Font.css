@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('../assets/Poppins-Regular.ttf') format('opentype');
+    font-weight:800 ;
+    font-style: normal;
+  }
+  
+  
+  @font-face {
+    font-family: 'PoppinsSemibold';
+    src: url('../assets/Poppins-SemiBold.ttf') format('opentype');
+    font-weight: 500;
+  }
+
+  /* @font-face {
+    font-family: 'PoppinsMedium';
+    src: url('../../public/Poppins-Medium.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+  } */

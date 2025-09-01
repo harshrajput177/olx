@@ -6,7 +6,6 @@ const YourListings = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 👇 Use your deployed backend base URL
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 
